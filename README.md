@@ -2,7 +2,7 @@ Pentower
 ========
 
 Tower defense made at GameJam5 by:
- * Thibault CATIMEL - Game Designer
+ * [Thibault CATIMEL][6] - Game Designer
  * [Adrien DELORME][4] - Game Designer
  * [Nicolas MUSSET][1] - Progammer
  * [Panagiotis TSAVDARIS][2] - Progammer
@@ -15,3 +15,4 @@ Tower defense made at GameJam5 by:
 [3]: https://github.com/maxailloud
 [4]: https://github.com/Armorlock
 [5]: http://www.psyyps.net
+[6]: https://github.com/LeFoV
