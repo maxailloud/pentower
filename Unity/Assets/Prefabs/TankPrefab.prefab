@@ -8,9 +8,17 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
+<<<<<<< Updated upstream
   - 136: {fileID: 13600000}
   m_Layer: 0
   m_Name: Left
+=======
+  - 33: {fileID: 3300000}
+  - 65: {fileID: 6500000}
+  - 23: {fileID: 2300000}
+  m_Layer: 8
+  m_Name: Tank_Visual
+>>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +32,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tank_Visual_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -28,5 +28,16 @@ public class Unit : MonoBehaviour
 	{
 	
 	}
+
+	void FixedUpdate ()
+	{
+		/*int layerMask = 1 << 8;
+		RaycastHit hit;
+		Vector3 fwd = transform.TransformDirection (Vector3.forward);
+		if (Physics.Raycast (transform.position, fwd, out hit, 1, layerMask)) {
+			print ("There is something in front of the object!");
+		}
+		*/
+	}
 }
 
