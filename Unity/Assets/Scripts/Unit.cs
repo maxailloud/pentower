@@ -3,8 +3,14 @@ using System.Collections;
 
 public class Unit : MonoBehaviour
 {
-	public float HitPoints;
-	public float MaxSpeed;
+	#region Gold
+	public float creationCost = 1;
+	public float incomeBase = 0;
+	#endregion // Gold
+	
+	public float hitPoints = 1;
+
+	public Tower tower;
 
 	public Tower tower;
 

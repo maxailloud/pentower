@@ -23,10 +23,39 @@ public class GameSingleton : MonoBehaviour
 	private static GameSingleton s_instance = null;
 	#endregion // Singleton
 
+	#region Properties
+	public AssetHolder assetHolder
+	{
+		get;
+		private set;
+	}
+	public GameConfig config
+	{
+		get;
+		private set;
+	}
+	public GameContext context
+	{
+		get;
+		private set;
+	}
+	public Menu menu
+	{
+		get;
+		private set;
+	}
+	#endregion // Properties
 	
 	void Awake ()
 	{
-		// TODO
+		// Get the game config.
+		this.config = (GameConfig) Resources.Load("GameConfig", typeof(GameConfig));
+		// Get the game context.
+		this.context = GetComponent<GameContext>();
+		// Get the menu.
+		this.menu = GetComponent<Menu>();
+		// Get the asset holder
+		this.assetHolder = (AssetHolder) Resources.Load ("AssetHolder", typeof(AssetHolder));
 	}
 	
 	void Start ()
