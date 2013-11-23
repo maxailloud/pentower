@@ -38,12 +38,6 @@ public class Menu : MonoBehaviour
 		this.m_context = GameSingleton.Instance.context;
 	}
 
-	void OnDestroy()
-	{
-		this.m_assetHolder = null;
-		this.m_context= null;
-	}
-
 	void Update()
 	{
 		switch (this.state)
