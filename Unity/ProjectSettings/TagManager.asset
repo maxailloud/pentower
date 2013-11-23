@@ -3,6 +3,11 @@
 --- !u!78 &1
 TagManager:
   tags:
+  - Tower5
+  - Tower4
+  - Tower3
+  - Tower2
+  - Tower1
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
