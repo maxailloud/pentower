@@ -18,6 +18,7 @@ public class Unit : MonoBehaviour
 	{
 		if (tower != null)
 		{
+			tower.gold -= this.creationCost;
 			tower.incomePerCycle += this.incomeBase;
 		}
 	}

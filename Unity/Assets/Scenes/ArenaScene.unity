@@ -117,7 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c1ba7268a19e84db0b75dc6c5f3d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitPoints: 0
+  gold: 0
+  hitPoints: 0
+  incomePerCycle: 0
 --- !u!114 &21278600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,8 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46d74eceea6afa4288ed898a66229c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 0
-  incomePerCycle: 0
   tower: {fileID: 0}
 --- !u!1 &79473175
 GameObject:
@@ -716,7 +716,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c1ba7268a19e84db0b75dc6c5f3d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitPoints: 0
+  gold: 0
+  hitPoints: 0
+  incomePerCycle: 0
 --- !u!114 &992687699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,8 +746,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46d74eceea6afa4288ed898a66229c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 0
-  incomePerCycle: 0
   tower: {fileID: 0}
 --- !u!1001 &1033501046
 Prefab:
@@ -908,7 +908,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c1ba7268a19e84db0b75dc6c5f3d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitPoints: 0
+  gold: 0
+  hitPoints: 0
+  incomePerCycle: 0
 --- !u!114 &1118925696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,8 +950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46d74eceea6afa4288ed898a66229c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 0
-  incomePerCycle: 0
   tower: {fileID: 0}
 --- !u!114 &1118925699
 MonoBehaviour:
@@ -1376,7 +1376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c1ba7268a19e84db0b75dc6c5f3d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitPoints: 0
+  gold: 0
+  hitPoints: 0
+  incomePerCycle: 0
 --- !u!114 &1812702462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,8 +1406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46d74eceea6afa4288ed898a66229c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 0
-  incomePerCycle: 0
   tower: {fileID: 0}
 --- !u!1 &1874922989
 GameObject:
@@ -1489,7 +1489,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c1ba7268a19e84db0b75dc6c5f3d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitPoints: 0
+  gold: 0
+  hitPoints: 0
+  incomePerCycle: 0
 --- !u!114 &1940663698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1517,8 +1519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46d74eceea6afa4288ed898a66229c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 0
-  incomePerCycle: 0
   tower: {fileID: 0}
 --- !u!1001 &1952068058
 Prefab:
