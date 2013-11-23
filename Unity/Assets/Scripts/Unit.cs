@@ -6,6 +6,8 @@ public class Unit : MonoBehaviour
 	public float HitPoints;
 	public float MaxSpeed;
 
+	public Tower tower;
+
 	// Use this for initialization
 	void Start ()
 	{
