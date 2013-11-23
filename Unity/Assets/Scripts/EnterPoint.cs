@@ -9,8 +9,6 @@ public class EnterPoint : MonoBehaviour
 	{
 		Unit unit = other.transform.parent.parent.parent.GetComponent<Unit> ();
 		if (null != unit) {
-			Debug.Log("Reached enter point "+target.tag);
-			Debug.Log(target.transform.position);
 			unit.transform.rotation = Quaternion.LookRotation (target.transform.position - unit.transform.position, Vector3.up);
 		}
 		
