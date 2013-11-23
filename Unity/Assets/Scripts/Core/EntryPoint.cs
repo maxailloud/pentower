@@ -47,7 +47,7 @@ public class EntryPoint : MonoBehaviour
 			// Show splash screen
 			yield return new WaitForSeconds (2.0f);
 			// Go to the menu
-			Application.LoadLevel ("Menu");
+			Application.LoadLevel ("MenuScene");
 			break;
 
 		case SceneMode.Menu:

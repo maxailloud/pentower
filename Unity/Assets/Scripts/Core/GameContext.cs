@@ -44,6 +44,9 @@ public class GameContext : MonoBehaviour
 		// Add an audio source for SFXs
 		this.m_bgmAudioSourceArray[AUDIOSRC_SFX] = gameObject.AddComponent<AudioSource>();
 		this.m_bgmAudioSourceArray[AUDIOSRC_SFX].playOnAwake = false;
+
+		// Get players at startup if the first scene loaded is Arena Scene
+		this.players = FindObjectsOfType(typeof(Player)) as Player[];
 	}
 
 	void OnDestroy ()
@@ -57,6 +60,8 @@ public class GameContext : MonoBehaviour
 		// Force fullscreen clearing (color AND depth)
 		GL.Clear (true, true, Color.black);
 		InitializeAudioListener ();
+		// Get players
+		this.players = FindObjectsOfType(typeof(Player)) as Player[];
 	}
 
 	#region Audio Management

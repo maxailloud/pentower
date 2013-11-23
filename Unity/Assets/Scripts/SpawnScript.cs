@@ -32,9 +32,11 @@ public class SpawnScript : MonoBehaviour
 
 			Transform spawnTransform = spawn.transform;
 			Transform targetTransform = spawn.target.transform;
-			Instantiate (this.spawnedObject, spawnTransform.position, Quaternion.LookRotation (targetTransform.position - spawnTransform.position, spawnTransform.up));
-			this.spawnedObject.GetComponent<Unit>().tower = this.GetComponent<Tower>();
+			GameObject go = (GameObject) Instantiate (this.spawnedObject, spawnTransform.position, Quaternion.LookRotation (targetTransform.position - spawnTransform.position, spawnTransform.up));
 
+			go.GetComponent<Unit>().tower = this.GetComponent<Tower>();
+			// Parent the instantiated tank to this gameObject
+			go.transform.parent = this.transform;
 		}
 	}
 }

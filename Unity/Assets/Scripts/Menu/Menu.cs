@@ -107,6 +107,8 @@ public class Menu : MonoBehaviour
 	{
 		GUILayout.BeginVertical();
 		GUILayout.FlexibleSpace();
+		GUILayout.BeginHorizontal();
+		GUILayout.FlexibleSpace();
 
 		if (GUILayout.Button("Jouer"))
 		{
@@ -116,7 +118,9 @@ public class Menu : MonoBehaviour
 		{
 			Application.LoadLevel("CreditsScene");
 		}
-
+		
+		GUILayout.FlexibleSpace();
+		GUILayout.EndHorizontal();
 		GUILayout.FlexibleSpace();
 		GUILayout.EndVertical();
 	}

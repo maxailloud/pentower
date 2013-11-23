@@ -84,6 +84,7 @@ GameObject:
   - 4: {fileID: 21278598}
   - 114: {fileID: 21278599}
   - 114: {fileID: 21278600}
+  - 114: {fileID: 21278601}
   m_Layer: 0
   m_Name: Tower_4
   m_TagString: Untagged
@@ -132,6 +133,21 @@ MonoBehaviour:
   frequency: 4
   spawnedObject: {fileID: 0}
   spawnPoints: []
+--- !u!114 &21278601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 83978ae21c83199458ae402820c7b7b3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1668799184}
+  m_GameObject: {fileID: 21278597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46d74eceea6afa4288ed898a66229c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gold: 0
+  incomePerCycle: 0
+  tower: {fileID: 0}
 --- !u!1 &79473175
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc3fade1220faf4c9561238970edb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneMode: 0
+  sceneMode: 4
 --- !u!4 &703378362
 Transform:
   m_ObjectHideFlags: 0
@@ -667,6 +683,7 @@ GameObject:
   - 4: {fileID: 992687697}
   - 114: {fileID: 992687698}
   - 114: {fileID: 992687699}
+  - 114: {fileID: 992687700}
   m_Layer: 0
   m_Name: Tower_2
   m_TagString: Untagged
@@ -715,6 +732,21 @@ MonoBehaviour:
   frequency: 2
   spawnedObject: {fileID: 0}
   spawnPoints: []
+--- !u!114 &992687700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 83978ae21c83199458ae402820c7b7b3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1978078168}
+  m_GameObject: {fileID: 992687696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46d74eceea6afa4288ed898a66229c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gold: 0
+  incomePerCycle: 0
+  tower: {fileID: 0}
 --- !u!1001 &1033501046
 Prefab:
   m_ObjectHideFlags: 0
@@ -837,6 +869,9 @@ GameObject:
   - 4: {fileID: 1118925694}
   - 114: {fileID: 1118925695}
   - 114: {fileID: 1118925696}
+  - 114: {fileID: 1118925698}
+  - 114: {fileID: 1118925697}
+  - 114: {fileID: 1118925699}
   m_Layer: 0
   m_Name: Tower_1
   m_TagString: Untagged
@@ -889,13 +924,55 @@ MonoBehaviour:
   frequency: 1
   spawnedObject: {fileID: 100006, guid: bb8f910a22e8d2740b0e4ab208464d89, type: 2}
   spawnPoints: []
+--- !u!114 &1118925697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1118925693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6383652a048b32644bf7983de3d5ac05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+--- !u!114 &1118925698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 83978ae21c83199458ae402820c7b7b3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1051549236}
+  m_GameObject: {fileID: 1118925693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46d74eceea6afa4288ed898a66229c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gold: 0
+  incomePerCycle: 0
+  tower: {fileID: 0}
+--- !u!114 &1118925699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1118925693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6974ec9ded13f64c8cd437aea8ce956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1154148962
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 11400000, guid: 5e620059e3fe58f43bc1976982ef32b9, type: 2}
+      propertyPath: sceneMode
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e620059e3fe58f43bc1976982ef32b9, type: 2}
   m_RootGameObject: {fileID: 703378360}
@@ -1266,6 +1343,7 @@ GameObject:
   - 4: {fileID: 1812702460}
   - 114: {fileID: 1812702461}
   - 114: {fileID: 1812702462}
+  - 114: {fileID: 1812702463}
   m_Layer: 0
   m_Name: Tower_3
   m_TagString: Untagged
@@ -1314,6 +1392,21 @@ MonoBehaviour:
   frequency: 3
   spawnedObject: {fileID: 0}
   spawnPoints: []
+--- !u!114 &1812702463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 83978ae21c83199458ae402820c7b7b3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1033501046}
+  m_GameObject: {fileID: 1812702459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46d74eceea6afa4288ed898a66229c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gold: 0
+  incomePerCycle: 0
+  tower: {fileID: 0}
 --- !u!1 &1874922989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,6 +1456,7 @@ GameObject:
   - 4: {fileID: 1940663696}
   - 114: {fileID: 1940663697}
   - 114: {fileID: 1940663698}
+  - 114: {fileID: 1940663699}
   m_Layer: 0
   m_Name: Tower_5
   m_TagString: Untagged
@@ -1411,6 +1505,21 @@ MonoBehaviour:
   frequency: 5
   spawnedObject: {fileID: 0}
   spawnPoints: []
+--- !u!114 &1940663699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 83978ae21c83199458ae402820c7b7b3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1952068058}
+  m_GameObject: {fileID: 1940663695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46d74eceea6afa4288ed898a66229c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gold: 0
+  incomePerCycle: 0
+  tower: {fileID: 0}
 --- !u!1001 &1952068058
 Prefab:
   m_ObjectHideFlags: 0
