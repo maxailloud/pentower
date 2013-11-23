@@ -12,8 +12,6 @@ public class Unit : MonoBehaviour
 
 	public Tower tower;
 
-	public Tower tower;
-
 	// Use this for initialization
 	void Start ()
 	{
