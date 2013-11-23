@@ -4,9 +4,6 @@ using System.Collections;
 [RequireComponent(typeof(Tower))]
 public class Player : MonoBehaviour {
 
-	public float gold;
-	public float incomePerCycle;
-
 	[HideInInspector]
 	public Tower tower;
 

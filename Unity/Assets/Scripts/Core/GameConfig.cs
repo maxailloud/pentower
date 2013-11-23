@@ -14,6 +14,8 @@ public class GameConfig : MonoBehaviour
 
 	#endregion // Layer Masks
 
+	public float defaultGold = 100.0f;
 	public float defaultIncomeCycleDelay = 5.0f;
+	public GUISkin defaultSkin;
 }
 

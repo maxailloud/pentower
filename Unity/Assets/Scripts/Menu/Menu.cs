@@ -69,6 +69,8 @@ public class Menu : MonoBehaviour
 	#region GUI
 	void OnGUI()
 	{
+		GUI.skin = GameSingleton.Instance.config.defaultSkin;
+
 		switch (this.state)
 		{
 		case MenuState.MainMenu:
@@ -114,7 +116,7 @@ public class Menu : MonoBehaviour
 		{
 			Application.LoadLevel("ArenaScene");
 		}
-		if (GUILayout.Button("Crédits"))
+		if (GUILayout.Button("Credits"))
 		{
 			Application.LoadLevel("CreditsScene");
 		}

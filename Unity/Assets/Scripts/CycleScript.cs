@@ -23,11 +23,11 @@ public class CycleScript : MonoBehaviour
 	private void DoIncomeCycle()
 	{
 		// Get players
-		Player[] players = GameObject.FindObjectsOfType(typeof(Player)) as Player[];
+		Tower[] towers = GameObject.FindObjectsOfType(typeof(Tower)) as Tower[];
 
-		foreach(var player in players)
+		foreach(var tower in towers)
 		{
-			player.gold += player.incomePerCycle;
+			tower.gold += tower.incomePerCycle;
 		}
 	}
 }

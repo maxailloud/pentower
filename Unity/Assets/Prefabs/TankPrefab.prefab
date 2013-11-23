@@ -62,6 +62,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: TankPrefab
   m_TagString: Untagged
@@ -250,8 +251,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1c8254b990f6c4ab775d04a4c62b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitPoints: 0
-  MaxSpeed: 0
+  creationCost: 1
+  incomeBase: 1
+  hitPoints: 1
+  maxHitPoints: 3
+  tower: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,6 +279,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3f6ff7bc8d73445a391757bed74fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe2e2db065eed34182c309c214ad4aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxWidth: 40
+  height: 6
+  offsetX: -.00999999978
+  offsetY: .0399999991
+  unit: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

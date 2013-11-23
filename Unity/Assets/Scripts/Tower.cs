@@ -3,12 +3,13 @@ using System.Collections;
 
 public class Tower : MonoBehaviour
 {
-	public float HitPoints;
+	public float gold;
+	public float hitPoints;
+	public float incomePerCycle;
 
-	// Use this for initialization
-	void Start ()
+	void Awake()
 	{
-	
+		this.gold = GameSingleton.Instance.config.defaultGold;	
 	}
 	
 	// Update is called once per frame
