@@ -24,7 +24,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tank_Visual_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
