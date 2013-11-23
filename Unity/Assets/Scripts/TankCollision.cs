@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Pentower/Units/TankCollision")]
 public class TankCollision : MonoBehaviour
 {
 	void OnTriggerEnter (Collider other)
@@ -12,4 +13,3 @@ public class TankCollision : MonoBehaviour
 		}
 	}
 }
-
