@@ -38,10 +38,11 @@ public class SpawnScript : MonoBehaviour
 
 			Transform spawnTransform = spawn.transform;
 			Transform targetTransform = enter.transform;
-			int layerMask = 1 << 10;
+			int layerMask = 1 << 8;
 			RaycastHit hit;
 			Vector3 forwardVector = targetTransform.position - spawnTransform.position;
-			if (!Physics.Raycast (spawnTransform.position, forwardVector, out hit, 3, layerMask))
+			Collider[] hitColliders = Physics.OverlapSphere(spawnTransform.position, 1.2f, layerMask);
+			if (hitColliders == null || hitColliders.Length == 0)
 			{
 				GameObject go = (GameObject) Instantiate (this.spawnedObject, spawnTransform.position, Quaternion.LookRotation (forwardVector, spawnTransform.up));
 				go.GetComponent<Unit>().tower = this.GetComponent<Tower>();
