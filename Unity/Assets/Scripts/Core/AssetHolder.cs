@@ -19,5 +19,12 @@ public class AssetHolder : MonoBehaviour
 	public AudioClip inGameMusic;
 	public AudioClip[] SFXs;
 	#endregion // SFX & BGM
+
+	#region Rendering
+	public Camera debugCamera;
+	public Camera gameCamera;
+	public Camera hudCamera;
+	public Material[] skyboxes;
+	#endregion // Rendering
 }
 

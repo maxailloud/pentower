@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(HUD))]
 [RequireComponent(typeof(Player))]
 public class PlayerController : MonoBehaviour
 {

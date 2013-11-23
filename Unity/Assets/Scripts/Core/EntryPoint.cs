@@ -59,6 +59,8 @@ public class EntryPoint : MonoBehaviour
 			this.gameObject.AddComponent<CycleScript>();
 			// Disable the menu
 			singleton.menu.state = MenuState.None;
+			// Add HUD
+			Instantiate (singleton.assetHolder.hudCamera);
 			break;
 
 		case SceneMode.Loading:

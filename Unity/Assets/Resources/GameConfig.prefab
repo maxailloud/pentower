@@ -44,6 +44,7 @@ MonoBehaviour:
   wallsLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  defaultGold: 100
   defaultIncomeCycleDelay: 5
   defaultSkin: {fileID: 11400000, guid: c1025e46a5a3bcd4d82bd87827a8231a, type: 2}
 --- !u!1001 &100100000
