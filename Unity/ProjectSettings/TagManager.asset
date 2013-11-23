@@ -3,6 +3,13 @@
 --- !u!78 &1
 TagManager:
   tags:
+  - Tower5
+  - Tower4
+  - Tower3
+  - Tower2
+  - Tower1
+  - EnterPoint
+  - 
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -14,8 +21,8 @@ TagManager:
   Builtin Layer 7: 
   User Layer 8: Tank
   User Layer 9: Tower
-  User Layer 10: 
-  User Layer 11: 
+  User Layer 10: TankDetection
+  User Layer 11: EnterPointDetection
   User Layer 12: 
   User Layer 13: 
   User Layer 14: 
