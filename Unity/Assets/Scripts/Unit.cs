@@ -13,6 +13,11 @@ public class Unit : MonoBehaviour
 
 	public Tower tower;
 
+	void OnDestroy()
+	{
+		this.tower = null;
+	}
+
 	// Use this for initialization
 	void Start ()
 	{

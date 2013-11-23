@@ -11,6 +11,11 @@ public class Player : MonoBehaviour {
 	{
 		this.tower = GetComponent<Tower>();
 	}
+	
+	void OnDestroy()
+	{
+		this.tower = null;
+	}
 
 	// Use this for initialization
 	void Start () {

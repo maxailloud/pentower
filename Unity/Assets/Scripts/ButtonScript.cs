@@ -24,6 +24,13 @@ public class ButtonScript : MonoBehaviour
 			this.renderer.material.mainTexture = this.defaultTexture;
 		}
 	}
+	
+	void OnDestroy()
+	{
+		this.defaultTexture = null;
+		this.mouseOverTexture = null;
+		this.toggledTexture = null;
+	}
 
 	public void SetDefault()
 	{

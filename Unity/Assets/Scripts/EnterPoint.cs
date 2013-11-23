@@ -4,6 +4,11 @@ using System.Collections;
 public class EnterPoint : MonoBehaviour
 {
 	public Tower target;
+	
+	void OnDestroy()
+	{
+		this.target = null;
+	}
 
 	void OnTriggerEnter (Collider other)
 	{

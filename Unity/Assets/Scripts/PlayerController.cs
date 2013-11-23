@@ -12,6 +12,11 @@ public class PlayerController : MonoBehaviour
 		this.player = GetComponent<Player>();
 	}
 
+	void OnDestroy()
+	{
+		this.player = null;
+	}
+
 	// Use this for initialization
 	void Start ()
 	{

@@ -23,6 +23,12 @@ public class Menu : MonoBehaviour
 	void Awake()
 	{
 	}
+	
+	void OnDestroy()
+	{
+		this.m_assetHolder = null;
+		this.m_context = null;
+	}
 
 	void Start()
 	{

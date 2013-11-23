@@ -12,7 +12,12 @@ public class HealthBar : MonoBehaviour
     static private Color lowHPColor = new Color(1f, 0, 0, 1f);
     static private Color middleHPColor = new Color(1f, 0.8f, 0, 1f);
     static private Color normalHPColor = new Color(0, 1f, 0, 1f);
-    private Transform tr = null;
+    private Transform tr = null;	
+	
+	void OnDestroy()
+	{
+		this.tr= null;
+	}
 
     // Use this for initialization
     void Start()

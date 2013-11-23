@@ -21,6 +21,13 @@ public class SpawnScript : MonoBehaviour
 		}
 	}
 
+	void OnDestroy()
+	{
+		this.spawnedObject = null;
+		this.enterPoints = null;
+		this.spawnPoint = null;
+	}
+
 	// Update is called once per frame
 	IEnumerator Start ()
 	{

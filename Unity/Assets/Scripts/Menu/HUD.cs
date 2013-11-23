@@ -12,6 +12,14 @@ public class HUD : MonoBehaviour
 	#endregion // HUD elements
 
 	private Player m_player;
+	
+	void OnDestroy()
+	{
+		this.lanes = null;
+		this.units = null;
+		this.creditsText = null;
+		this.incomeText = null;
+	}
 
 	void Start()
 	{
