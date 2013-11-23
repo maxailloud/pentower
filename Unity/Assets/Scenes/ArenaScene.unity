@@ -375,6 +375,14 @@ Prefab:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 1dd679e8832394b4ebb41d3a950e9306, type: 2}
+      propertyPath: m_CullingMask.m_Bits
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1dd679e8832394b4ebb41d3a950e9306, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1dd679e8832394b4ebb41d3a950e9306, type: 2}
   m_RootGameObject: {fileID: 688178385}
@@ -465,6 +473,8 @@ GameObject:
   - 92: {fileID: 688178388}
   - 124: {fileID: 688178387}
   - 81: {fileID: 688178386}
+  - 45: {fileID: 688178392}
+  - 114: {fileID: 688178391}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -521,7 +531,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
@@ -537,6 +547,32 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &688178391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 688178385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27acebc9ad1110f6d00074c88d76c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 79473179}
+  distance: 80
+  xSpeed: 250
+  ySpeed: 120
+  yMinLimit: 5
+  yMaxLimit: 80
+--- !u!45 &688178392
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4500000, guid: 1dd679e8832394b4ebb41d3a950e9306,
+    type: 2}
+  m_PrefabInternal: {fileID: 629286211}
+  m_GameObject: {fileID: 688178385}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!1 &698020207
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,7 +955,6 @@ GameObject:
   - 114: {fileID: 1118925696}
   - 114: {fileID: 1118925698}
   - 114: {fileID: 1118925697}
-  - 114: {fileID: 1118925699}
   m_Layer: 9
   m_Name: Tower_1
   m_TagString: Untagged
@@ -999,17 +1034,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
---- !u!114 &1118925699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1118925693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6974ec9ded13f64c8cd437aea8ce956, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1154148962
 Prefab:
   m_ObjectHideFlags: 0

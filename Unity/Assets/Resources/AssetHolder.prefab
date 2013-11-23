@@ -42,6 +42,18 @@ MonoBehaviour:
   menuMusic: {fileID: 0}
   inGameMusic: {fileID: 0}
   SFXs: []
+  debugCamera: {fileID: 2000000, guid: 8ebd36ddc39308242af189d938ba92a9, type: 2}
+  gameCamera: {fileID: 2000000, guid: 1dd679e8832394b4ebb41d3a950e9306, type: 2}
+  hudCamera: {fileID: 2000000, guid: b4e0f197d10746b4db07bf06da32c750, type: 2}
+  skyboxes:
+  - {fileID: 2100000, guid: dca4da634ee623e4f9f49230314ff7b1, type: 2}
+  - {fileID: 2100000, guid: c7316dddb1be4264bb7f4b838c146029, type: 2}
+  - {fileID: 2100000, guid: e61563f0b2078284587ec59ac19c60a5, type: 2}
+  - {fileID: 2100000, guid: 9a4333b8bae764f4a869b4dd65c0cd45, type: 2}
+  - {fileID: 2100000, guid: c0c64ed9069cd32418a39a9ab66d6907, type: 2}
+  - {fileID: 2100000, guid: 9a110a8bff820fc448ddb6a8bab28ace, type: 2}
+  - {fileID: 2100000, guid: 6cf7b0d47276858478b0befdb5e48f05, type: 2}
+  - {fileID: 2100000, guid: 17363cf94f164114285cb0f860d590f2, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
