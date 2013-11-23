@@ -10,6 +10,8 @@ public class Unit : MonoBehaviour
 	
 	public float hitPoints = 1;
 
+	public Tower tower;
+
 	// Use this for initialization
 	void Start ()
 	{
