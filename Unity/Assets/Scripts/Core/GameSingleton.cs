@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 
 [AddComponentMenu("Pentower/Core/Game Singleton")]
+[RequireComponent(typeof(GameContext))]
+[RequireComponent(typeof(Menu))]
 public class GameSingleton : MonoBehaviour
 {
 	#region Singleton

@@ -14,7 +14,6 @@ public class GameConfig : MonoBehaviour
 
 	#endregion // Layer Masks
 
-	// TODO...
-
+	public float defaultIncomeCycleDelay = 5.0f;
 }
 

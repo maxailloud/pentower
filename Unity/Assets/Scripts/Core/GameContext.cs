@@ -27,7 +27,8 @@ public class GameContext : MonoBehaviour
 	#endregion // Audio
 
 	#region Players
-	// TODO
+	public Player[] players;
+	public Player currentPlayer;
 	#endregion // Players
 
 	private int m_nLastLevelPrefix = 0;

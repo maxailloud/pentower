@@ -18,11 +18,12 @@ public enum SceneMode
 	/// <summary>
 	/// Main game scene.
 	/// </summary>
-	Fight = 4,
+	Arena = 4,
 	/// <summary>
 	/// Intermediary scene where resources are loaded.
 	/// </summary>
 	Loading = 5,
+	Credits = 6,
 }
 
 [AddComponentMenu("Pentower/Core/Entry Point")]
@@ -50,11 +51,14 @@ public class EntryPoint : MonoBehaviour
 			break;
 
 		case SceneMode.Menu:
-			// TODO
+			// Enable the menu
+			singleton.menu.state = MenuState.MainMenu;
 			break;
 
-		case SceneMode.Fight:
-			// TODO
+		case SceneMode.Arena:
+			this.gameObject.AddComponent<CycleScript>();
+			// Disable the menu
+			singleton.menu.state = MenuState.None;
 			break;
 
 		case SceneMode.Loading:

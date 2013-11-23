@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc3fade1220faf4c9561238970edb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneMode: 0
+  sceneMode: 4
 --- !u!4 &703378362
 Transform:
   m_ObjectHideFlags: 0
@@ -893,7 +893,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 11400000, guid: 5e620059e3fe58f43bc1976982ef32b9, type: 2}
+      propertyPath: sceneMode
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e620059e3fe58f43bc1976982ef32b9, type: 2}
   m_RootGameObject: {fileID: 703378360}

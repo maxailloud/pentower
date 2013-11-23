@@ -20,6 +20,10 @@ public class Menu : MonoBehaviour
 	private GameContext m_context;
 	#endregion // Cached References
 
+	void Awake()
+	{
+	}
+
 	void Start()
 	{
 		// Get the asset holder and cache the reference
@@ -104,7 +108,14 @@ public class Menu : MonoBehaviour
 		GUILayout.BeginVertical();
 		GUILayout.FlexibleSpace();
 
-		// TODO
+		if (GUILayout.Button("Jouer"))
+		{
+			Application.LoadLevel("ArenaScene");
+		}
+		if (GUILayout.Button("Crédits"))
+		{
+			Application.LoadLevel("CreditsScene");
+		}
 
 		GUILayout.FlexibleSpace();
 		GUILayout.EndVertical();
@@ -129,7 +140,7 @@ public class Menu : MonoBehaviour
 		}
 		if (GUILayout.Button("Main Menu"))
 		{
-			Application.LoadLevel("Menu");
+			Application.LoadLevel("MenuScene");
 			this.state = MenuState.None;
 		}
 	}
