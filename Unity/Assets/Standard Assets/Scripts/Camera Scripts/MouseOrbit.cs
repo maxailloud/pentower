@@ -32,7 +32,8 @@ public class MouseOrbit : MonoBehaviour
 	// Update is called once per frame
 	void LateUpdate ()
 	{
-		if (target != null) {
+		if (target != null && (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)))
+		{
 			x += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
 			y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 			

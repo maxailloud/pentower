@@ -2001,7 +2001,7 @@ GameObject:
   - 114: {fileID: 688178391}
   - 114: {fileID: 688178393}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: GameCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2110,6 +2110,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61c9bcbb1f50b248b9ebc2e9631d2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targets:
+  - {fileID: 448502371}
+  - {fileID: 727735797}
+  - {fileID: 983798241}
+  - {fileID: 1406499604}
+  - {fileID: 1278173355}
+  - {fileID: 1637079096}
+  distances: []
+  yMinLimits: []
+  yMaxLimits: []
 --- !u!1 &703378360
 GameObject:
   m_ObjectHideFlags: 0
@@ -3662,16 +3672,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 1dd679e8832394b4ebb41d3a950e9306, type: 2}
       propertyPath: m_Name
-      value: Main Camera
+      value: GameCamera
       objectReference: {fileID: 0}
-    - target: {fileID: 4500000, guid: 1dd679e8832394b4ebb41d3a950e9306, type: 2}
-      propertyPath: m_CustomSkybox
-      value: 
-      objectReference: {fileID: 2100000, guid: c0c64ed9069cd32418a39a9ab66d6907, type: 2}
     - target: {fileID: 11400000, guid: 1dd679e8832394b4ebb41d3a950e9306, type: 2}
       propertyPath: target
       value: 
       objectReference: {fileID: 448502371}
+    - target: {fileID: 11400000, guid: 1dd679e8832394b4ebb41d3a950e9306, type: 2}
+      propertyPath: distance
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1dd679e8832394b4ebb41d3a950e9306, type: 2}
   m_RootGameObject: {fileID: 688178385}
