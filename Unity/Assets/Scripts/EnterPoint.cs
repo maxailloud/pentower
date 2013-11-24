@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnterPoint : MonoBehaviour
 {
-	public Tower target;
+	public Transform target;
 	
 	void OnDestroy()
 	{
@@ -14,7 +14,7 @@ public class EnterPoint : MonoBehaviour
 	{
 		Unit unit = other.transform.parent.parent.parent.GetComponent<Unit> ();
 		if (null != unit) {
-			unit.transform.rotation = Quaternion.LookRotation (target.transform.position - unit.transform.position, Vector3.up);
+			unit.transform.rotation = Quaternion.LookRotation (target.position - unit.transform.position, Vector3.up);
 		}
 		
 	}

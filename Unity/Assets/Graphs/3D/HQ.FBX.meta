@@ -1,73 +1,29 @@
 fileFormatVersion: 2
-guid: 313dd902ae91d79429635ccbc3f77983
+guid: 6e7abe9aa3460584682bc7d1feb539ab
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
-    100000: Box003
-    100002: Box005
-    100004: Box006
-    100006: Box013
-    100008: Box014
-    100010: Box015
-    100012: Box016
-    100014: Box017
-    100016: Box018
-    100018: Box019
-    100020: Box020
-    100022: Box021
-    100024: //RootNode
-    400000: Box003
-    400002: Box005
-    400004: Box006
-    400006: Box013
-    400008: Box014
-    400010: Box015
-    400012: Box016
-    400014: Box017
-    400016: Box018
-    400018: Box019
-    400020: Box020
-    400022: Box021
-    400024: //RootNode
-    2300000: Box003
-    2300002: Box005
-    2300004: Box006
-    2300006: Box013
-    2300008: Box014
-    2300010: Box015
-    2300012: Box016
-    2300014: Box017
-    2300016: Box018
-    2300018: Box019
-    2300020: Box020
-    2300022: Box021
-    3300000: Box003
-    3300002: Box005
-    3300004: Box006
-    3300006: Box013
-    3300008: Box014
-    3300010: Box015
-    3300012: Box016
-    3300014: Box017
-    3300016: Box018
-    3300018: Box019
-    3300020: Box020
-    3300022: Box021
-    4300000: Box006
-    4300002: Box021
-    4300004: Box020
-    4300006: Box019
-    4300008: Box018
-    4300010: Box017
-    4300012: Box016
-    4300014: Box015
-    4300016: Box014
-    4300018: Box013
-    4300020: Box003
-    4300022: Box005
+    100000: Box001_Untitled
+    100002: Box002_Untitled_003
+    100004: Cylinder001_Untitled_002
+    100006: //RootNode
+    400000: Box001_Untitled
+    400002: Box002_Untitled_003
+    400004: Cylinder001_Untitled_002
+    400006: //RootNode
+    2300000: Box001_Untitled
+    2300002: Box002_Untitled_003
+    2300004: Cylinder001_Untitled_002
+    3300000: Box001_Untitled
+    3300002: Box002_Untitled_003
+    3300004: Cylinder001_Untitled_002
+    4300000: Box001_Untitled
+    4300002: Cylinder001_Untitled_002
+    4300004: Box002_Untitled_003
+    7400000: Default Take
     9500000: //RootNode
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
@@ -81,7 +37,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: .00999999978

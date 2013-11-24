@@ -40,8 +40,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tankPrefabs:
   - {fileID: 11400000, guid: bb8f910a22e8d2740b0e4ab208464d89, type: 2}
-  - {fileID: 11400000, guid: bb8f910a22e8d2740b0e4ab208464d89, type: 2}
-  - {fileID: 11400000, guid: bb8f910a22e8d2740b0e4ab208464d89, type: 2}
+  - {fileID: 11400006, guid: 1094ee9c4d8e1d049b87850d13da3207, type: 2}
+  - {fileID: 11400006, guid: 1094ee9c4d8e1d049b87850d13da3207, type: 2}
   menuMusic: {fileID: 0}
   inGameMusic: {fileID: 0}
   SFXs: []
