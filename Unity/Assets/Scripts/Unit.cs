@@ -110,7 +110,6 @@ public class Unit : MonoBehaviour
 	{
 		while (this.currentState == UnitState.Dying)
 		{
-			// nothing for now
 			this.currentState = UnitState.Dead;
 			yield return null;
 		}
@@ -120,8 +119,6 @@ public class Unit : MonoBehaviour
 	{
 		while (this.currentState == UnitState.Dead)
 		{
-			// nothing for now
-			Debug.Log("Dead...");
 			Destroy(this.gameObject);
 			yield return null;
 		}
@@ -168,12 +165,15 @@ public class Unit : MonoBehaviour
 				this.targetUnit.LoseHitPoints (this.damagePoints);
 			} else {
 				this.targetUnit = null;
+				this.StartMovement();
 			}
 		} else if (null != this.targetTower) {
-
-		} else {
-			this.StopAttack();
-			this.StartMovement();
+			if (TowerState.Destroying != this.targetTower.currentState && TowerState.Destroyed != this.targetTower.currentState) {
+				this.targetTower.LoseHitPoints (this.damagePoints);
+			} else {
+				this.targetTower = null;
+				this.currentState = UnitState.Dying;
+			}
 		}
 	}
 
