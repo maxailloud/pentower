@@ -107,7 +107,7 @@ public class Tower : MonoBehaviour
 	
 	public void EnqueueUnit (int laneIndex, Unit unit)
 	{
-		laneIndex = Mathf.Clamp (laneIndex, 0, this.laneQueues.Count);
+		laneIndex = Mathf.Clamp (laneIndex, 0, this.laneQueues.Count - 1);
 
 		if (this.laneQueues [laneIndex].Count < this.maxUnitPerQueue) {
 			this.laneQueues [laneIndex].Enqueue (unit);
@@ -116,7 +116,7 @@ public class Tower : MonoBehaviour
 
 	public void DequeueUnit (int laneIndex)
 	{
-		laneIndex = Mathf.Clamp (laneIndex, 0, this.laneQueues.Count);
+		laneIndex = Mathf.Clamp (laneIndex, 0, this.laneQueues.Count - 1);
 		
 		if (this.laneQueues [laneIndex].Count > 0) {
 			this.laneQueues [laneIndex].Dequeue ();
@@ -131,13 +131,13 @@ public class Tower : MonoBehaviour
 	public void UnitKilled(Unit unit)
 	{
 		// For now just ndecrement counter
-		this.aliveUnits = Mathf.Clamp (this.aliveUnits - 1, 0, this.maxAliveUnits);
+		this.aliveUnits = Mathf.Clamp (this.aliveUnits - 1, 0, this.maxAliveUnits - 1);
 	}
 	
 	public void UnitSpawned(Unit unit)
 	{
 		// For now just increment counter
-		this.aliveUnits = Mathf.Clamp (this.aliveUnits + 1, 0, this.maxAliveUnits);
+		this.aliveUnits = Mathf.Clamp (this.aliveUnits + 1, 0, this.maxAliveUnits - 1);
 	}
 
 	public void LoseHitPoints (int hitPoints) 

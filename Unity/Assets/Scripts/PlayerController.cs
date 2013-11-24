@@ -36,13 +36,13 @@ public class PlayerController : MonoBehaviour
 
 	public void SelectLaneIndex (int laneIndex)
 	{
-		this.selectedLaneIndex = Mathf.Clamp (laneIndex, 0, GameSingleton.Instance.config.maxLaneCount);
+		this.selectedLaneIndex = Mathf.Clamp (laneIndex, 0, GameSingleton.Instance.config.maxLaneCount - 1);
 	}
 	
 	public void SelectUnitIndex (int unitIndex)
 	{
 		AssetHolder holder = GameSingleton.Instance.assetHolder;
-		this.selectedUnitIndex = Mathf.Clamp (unitIndex, 0, holder.tankPrefabs.Length);
+		this.selectedUnitIndex = Mathf.Clamp (unitIndex, 0, holder.tankPrefabs.Length - 1);
 
 		this.player.tower.EnqueueUnit (this.selectedLaneIndex, holder.tankPrefabs [this.selectedUnitIndex]);
 	}
