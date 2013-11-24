@@ -11,7 +11,7 @@ internal enum SFX
 public class AssetHolder : MonoBehaviour
 {
 	#region Tanks
-	public Unit tankPrefab;
+	public Unit[] tankPrefabs;
 	#endregion // Tanks
 
 	#region Sfx & Bgm

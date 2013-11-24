@@ -28,7 +28,7 @@ public class GameContext : MonoBehaviour
 
 	#region Players
 	public Player[] players;
-	public Player currentPlayer;
+	public PlayerController currentPlayerController;
 	#endregion // Players
 
 	private int m_nLastLevelPrefix = 0;
@@ -39,14 +39,14 @@ public class GameContext : MonoBehaviour
 
 		this.m_bgmAudioSourceArray = new AudioSource[2];
 		// Add an audio source for BGM music
-		this.m_bgmAudioSourceArray[AUDIOSRC_AMB] = gameObject.AddComponent<AudioSource>();
-		this.m_bgmAudioSourceArray[AUDIOSRC_AMB].playOnAwake = false;
+		this.m_bgmAudioSourceArray [AUDIOSRC_AMB] = gameObject.AddComponent<AudioSource> ();
+		this.m_bgmAudioSourceArray [AUDIOSRC_AMB].playOnAwake = false;
 		// Add an audio source for SFXs
-		this.m_bgmAudioSourceArray[AUDIOSRC_SFX] = gameObject.AddComponent<AudioSource>();
-		this.m_bgmAudioSourceArray[AUDIOSRC_SFX].playOnAwake = false;
+		this.m_bgmAudioSourceArray [AUDIOSRC_SFX] = gameObject.AddComponent<AudioSource> ();
+		this.m_bgmAudioSourceArray [AUDIOSRC_SFX].playOnAwake = false;
 
 		// Get players at startup if the first scene loaded is Arena Scene
-		this.players = FindObjectsOfType(typeof(Player)) as Player[];
+		this.players = FindObjectsOfType (typeof(Player)) as Player[];
 	}
 
 	void OnDestroy ()
@@ -61,15 +61,14 @@ public class GameContext : MonoBehaviour
 		GL.Clear (true, true, Color.black);
 		InitializeAudioListener ();
 		// Get players
-		this.players = FindObjectsOfType(typeof(Player)) as Player[];
+		this.players = FindObjectsOfType (typeof(Player)) as Player[];
 	}
 
 	#region Audio Management
 	private void InitializeAudioListener ()
 	{
 		this.audioListener = (AudioListener)FindObjectOfType (typeof(AudioListener));
-		if (this.audioListener)
-		{
+		if (this.audioListener) {
 			AudioSource snd = GetAudioSource (AUDIOSRC_AMB);
 			if (snd != null) {
 				// TODO: set volume based on GameConfig
@@ -103,20 +102,16 @@ public class GameContext : MonoBehaviour
 		}
 
 		AudioSource snd = GetAudioSource (AUDIOSRC_AMB);
-		if (snd != null && snd.clip != clip)
-		{
+		if (snd != null && snd.clip != clip) {
 			snd.ignoreListenerVolume = true;
-			if( snd.isPlaying)
-			{
-				StartCoroutine (FadeAmbiance(snd, clip));
-			}
-			else
-			{
-				snd.Stop();
+			if (snd.isPlaying) {
+				StartCoroutine (FadeAmbiance (snd, clip));
+			} else {
+				snd.Stop ();
 				snd.clip = clip;
 				snd.loop = true;
 				// TODO: set volume based on GameConfig
-				snd.Play();
+				snd.Play ();
 			}
 		}
 	}
@@ -125,9 +120,8 @@ public class GameContext : MonoBehaviour
 	{
 		float prevVolume = snd.volume;
 		// FIXME: fade speed and fade min (GameConfig?)
-		while( snd.volume > 0.05f )
-		{
-			snd.volume = Mathf.Lerp (snd.volume, 0.0f, 1.5f*Time.deltaTime);
+		while (snd.volume > 0.05f) {
+			snd.volume = Mathf.Lerp (snd.volume, 0.0f, 1.5f * Time.deltaTime);
 			yield return null;
 		}
 		snd.Stop ();
@@ -135,9 +129,8 @@ public class GameContext : MonoBehaviour
 		snd.loop = true;
 		snd.Play ();
 		// FIXME: fade speed and fade min (GameConfig?)
-		while( snd.volume < (prevVolume - 0.01f) )
-		{
-			snd.volume = Mathf.Lerp (snd.volume, prevVolume + 0.01f, 2.0f*Time.deltaTime);
+		while (snd.volume < (prevVolume - 0.01f)) {
+			snd.volume = Mathf.Lerp (snd.volume, prevVolume + 0.01f, 2.0f * Time.deltaTime);
 			yield return null;
 		}
 		snd.volume = prevVolume;
@@ -244,7 +237,7 @@ public class GameContext : MonoBehaviour
 		// This will prevent old updates from clients leaking into a newly created scene.
 		Network.SetLevelPrefix (levelPrefix);
 
-		yield return StartCoroutine(LoadStreamedLevel(levelName, false, true));
+		yield return StartCoroutine (LoadStreamedLevel (levelName, false, true));
 		// Awake and Start are called on each objects, so wait one or two frames.
 		yield return null;
 		yield return null;

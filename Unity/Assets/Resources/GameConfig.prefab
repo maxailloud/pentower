@@ -40,7 +40,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tankLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   wallsLayerMask:
     serializedVersion: 2
     m_Bits: 0

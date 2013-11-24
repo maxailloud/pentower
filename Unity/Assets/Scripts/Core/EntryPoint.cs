@@ -56,7 +56,7 @@ public class EntryPoint : MonoBehaviour
 			break;
 
 		case SceneMode.Arena:
-			this.gameObject.AddComponent<CycleScript>();
+			this.gameObject.AddComponent<CycleScript> ();
 			// Disable the menu
 			singleton.menu.state = MenuState.None;
 			// Add HUD
@@ -68,6 +68,11 @@ public class EntryPoint : MonoBehaviour
 		default:
 			break;
 		}
+	}
+
+	void OnLevelWasLoaded ()
+	{
+		Random.seed = Mathf.RoundToInt (Time.realtimeSinceStartup);
 	}
 
 	void OnGUI ()

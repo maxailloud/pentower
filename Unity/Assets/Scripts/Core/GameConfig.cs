@@ -17,5 +17,7 @@ public class GameConfig : MonoBehaviour
 	public float defaultGold = 100.0f;
 	public float defaultIncomeCycleDelay = 5.0f;
 	public GUISkin defaultSkin;
+
+	public int maxLaneCount = 4;
 }
 

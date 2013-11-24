@@ -1,18 +1,26 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
-[RequireComponent(typeof(Player))]
 public class PlayerController : MonoBehaviour
 {
-	[HideInInspector]
 	public Player player;
 
-	void Awake()
+	[HideInInspector]
+	public int
+		selectedLaneIndex;
+
+	[HideInInspector]
+	public int
+		selectedUnitIndex;
+
+	void Awake ()
 	{
-		this.player = GetComponent<Player>();
+		if (this.player == null) {
+			this.player = GetComponent<Player> ();
+		}
 	}
 
-	void OnDestroy()
+	void OnDestroy ()
 	{
 		this.player = null;
 	}
@@ -20,14 +28,23 @@ public class PlayerController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		// Register player to game context
-		GameSingleton.Instance.context.currentPlayer = this.player;
+		if (this.player != null) {
+			// Register player to game context
+			GameSingleton.Instance.context.currentPlayerController = this;
+		}
+	}
+
+	public void SelectLaneIndex (int laneIndex)
+	{
+		this.selectedLaneIndex = Mathf.Clamp (laneIndex, 0, GameSingleton.Instance.config.maxLaneCount);
 	}
 	
-	// Update is called once per frame
-	void Update ()
+	public void SelectUnitIndex (int unitIndex)
 	{
-	
+		AssetHolder holder = GameSingleton.Instance.assetHolder;
+		this.selectedUnitIndex = Mathf.Clamp (unitIndex, 0, holder.tankPrefabs.Length);
+
+		this.player.tower.EnqueueUnit (this.selectedLaneIndex, holder.tankPrefabs [this.selectedUnitIndex]);
 	}
 }
 

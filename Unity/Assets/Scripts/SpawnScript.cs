@@ -3,15 +3,14 @@ using System.Collections;
 
 public class SpawnScript : MonoBehaviour
 {
-	public float frequency;
-	public GameObject spawnedObject;
 	public EnterPoint[] enterPoints;
 	public SpawnPoint spawnPoint;
+	public float spawningCoolDown = 1.0f;
+
+	private Tower m_tower;
 
 	void Awake ()
 	{
-		Random.seed = Mathf.RoundToInt (Time.realtimeSinceStartup);
-
 		if (this.enterPoints == null || this.enterPoints.Length == 0) {
 			this.enterPoints = GetComponentsInChildren<EnterPoint> ();
 		}
@@ -19,44 +18,70 @@ public class SpawnScript : MonoBehaviour
 		if (this.spawnPoint == null) {
 			this.spawnPoint = GetComponentInChildren<SpawnPoint> ();
 		}
+
+		this.m_tower = GetComponent<Tower> ();
 	}
 
-	void OnDestroy()
+	void OnDestroy ()
 	{
-		this.spawnedObject = null;
+		StopAllCoroutines ();
+
 		this.enterPoints = null;
 		this.spawnPoint = null;
+		this.m_tower = null;
 	}
 
-	// Update is called once per frame
 	IEnumerator Start ()
 	{
 		for (;;) {
-			DoSpawn ();
-			yield return new WaitForSeconds (1.0f / this.frequency);
+			yield return new WaitForSeconds (this.spawningCoolDown);
+			CheckLaneQueues ();
 		}
 	}
 
-	private void DoSpawn ()
+	private void CheckLaneQueues ()
 	{
-		if (this.spawnedObject != null && this.enterPoints != null && this.enterPoints.Length > 0) {
-			var enter = this.enterPoints [Random.Range (0, this.enterPoints.Length)];
-			var spawn = this.spawnPoint;
+		if (this.m_tower != null) {
+			int index = this.m_tower.currentSpawningLaneIndex;
 
-			Transform spawnTransform = spawn.transform;
+			if (this.m_tower.laneQueues [index].Count > 0) {
+				Unit unit = this.m_tower.laneQueues [index].Peek ();
+
+				if (SpawnUnit (unit, index)) {
+					this.m_tower.DequeueUnit (index);
+				}
+			}
+			
+			this.m_tower.MoveLaneIndex ();
+		}
+	}
+
+	public bool SpawnUnit (Unit Unit, int enterPointIndex)
+	{
+		return SpawnUnit (Unit, this.spawnPoint.transform, enterPointIndex);
+	}
+
+	public bool SpawnUnit (Unit unit, Transform spawnPoint, int enterPointIndex)
+	{
+		if (unit != null && this.enterPoints != null && this.enterPoints.Length > enterPointIndex) {
+			var enter = this.enterPoints [enterPointIndex];	
+
 			Transform targetTransform = enter.transform;
-			int layerMask = 1 << 8;
-			RaycastHit hit;
-			Vector3 forwardVector = targetTransform.position - spawnTransform.position;
-			Collider[] hitColliders = Physics.OverlapSphere(spawnTransform.position, 1.2f, layerMask);
-			if (hitColliders == null || hitColliders.Length == 0)
-			{
-				GameObject go = (GameObject) Instantiate (this.spawnedObject, spawnTransform.position, Quaternion.LookRotation (forwardVector, spawnTransform.up));
-				go.GetComponent<Unit>().tower = this.GetComponent<Tower>();
+			int layerMask = GameSingleton.Instance.config.tankLayerMask.value;
+			Vector3 forwardVector = targetTransform.position - spawnPoint.position;
+
+			Collider[] hitColliders = Physics.OverlapSphere (spawnPoint.position, 1.2f, layerMask);
+			if (hitColliders == null || hitColliders.Length == 0) {
+				unit = (Unit)Instantiate (unit, spawnPoint.position, Quaternion.LookRotation (forwardVector, spawnPoint.up));
+				unit.tower = this.GetComponent<Tower> ();
 				// Parent the instantiated tank to this gameObject
-				go.transform.parent = this.transform;
+				unit.transform.parent = this.transform;
+
+				return true;
 			}
 		}
+
+		return false;
 	}
 }
 

@@ -920,7 +920,7 @@ MonoBehaviour:
   toggledTexture: {fileID: 2800000, guid: ff926d492aa4d6e419429987a0d1a27b, type: 3}
   isToggle: 1
   toggled: 0
-  buttonId: 4
+  buttonId: 3
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -937,7 +937,7 @@ MonoBehaviour:
   toggledTexture: {fileID: 2800000, guid: be30e58b21e1b574e9f80196a5200363, type: 3}
   isToggle: 1
   toggled: 0
-  buttonId: 3
+  buttonId: 2
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -954,7 +954,7 @@ MonoBehaviour:
   toggledTexture: {fileID: 2800000, guid: e7ee7a93d4c8eae479a78da79dc8c6ab, type: 3}
   isToggle: 1
   toggled: 0
-  buttonId: 2
+  buttonId: 1
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -971,7 +971,7 @@ MonoBehaviour:
   toggledTexture: {fileID: 2800000, guid: 11ad3c667b1505947a708ad0d72d1401, type: 3}
   isToggle: 1
   toggled: 1
-  buttonId: 1
+  buttonId: 0
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -988,7 +988,7 @@ MonoBehaviour:
   toggledTexture: {fileID: 2800000, guid: 3ffc61d733024dd40a0718458b65c4f5, type: 3}
   isToggle: 0
   toggled: 0
-  buttonId: 3
+  buttonId: 2
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1005,7 +1005,7 @@ MonoBehaviour:
   toggledTexture: {fileID: 2800000, guid: 3ffc61d733024dd40a0718458b65c4f5, type: 3}
   isToggle: 0
   toggled: 0
-  buttonId: 2
+  buttonId: 1
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1022,7 +1022,7 @@ MonoBehaviour:
   toggledTexture: {fileID: 2800000, guid: 3ffc61d733024dd40a0718458b65c4f5, type: 3}
   isToggle: 0
   toggled: 0
-  buttonId: 1
+  buttonId: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
