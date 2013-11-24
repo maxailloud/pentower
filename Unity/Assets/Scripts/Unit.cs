@@ -172,6 +172,7 @@ public class Unit : MonoBehaviour
 		} else if (null != this.targetTower) {
 			if (TowerState.Destroying != this.targetTower.currentState && TowerState.Destroyed != this.targetTower.currentState) {
 				this.targetTower.LoseHitPoints (this.damagePoints);
+				GameSingleton.Instance.context.PlayOneShotSFX(SFX.Laser);
 			} else {
 				this.targetTower = null;
 				this.currentState = UnitState.Dying;

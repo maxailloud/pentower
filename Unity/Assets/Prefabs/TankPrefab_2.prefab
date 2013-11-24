@@ -526,12 +526,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1c8254b990f6c4ab775d04a4c62b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creationCost: 5
-  incomeBase: 1
+  creationCost: 20
+  incomeBase: 4
   hitPoints: 5
   maxHitPoints: 5
   tower: {fileID: 0}
-  damagePoints: 1
+  damagePoints: 3
   attackDelayTime: 1
   targetUnit: {fileID: 0}
   targetTower: {fileID: 0}

@@ -61,6 +61,7 @@ public class EntryPoint : MonoBehaviour
 			singleton.menu.state = MenuState.None;
 			// Add HUD
 			Instantiate (singleton.assetHolder.hudCamera);
+			singleton.context.PlayAmbiance(singleton.assetHolder.inGameMusic);
 			break;
 
 		case SceneMode.Loading:

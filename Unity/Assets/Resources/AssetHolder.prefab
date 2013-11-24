@@ -42,9 +42,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bb8f910a22e8d2740b0e4ab208464d89, type: 2}
   - {fileID: 11400006, guid: 1094ee9c4d8e1d049b87850d13da3207, type: 2}
   - {fileID: 11400006, guid: 1eaf905657acdb448b78d0e06e3b08d8, type: 2}
-  menuMusic: {fileID: 0}
-  inGameMusic: {fileID: 0}
-  SFXs: []
+  menuMusic: {fileID: 8300000, guid: 91b2aa27449d9044ea0021eab59ab45b, type: 3}
+  inGameMusic: {fileID: 8300000, guid: 91b2aa27449d9044ea0021eab59ab45b, type: 3}
+  SFXs:
+  - {fileID: 8300000, guid: 5a7520db59bd464419cbc5902be86677, type: 3}
   debugCamera: {fileID: 2000000, guid: 8ebd36ddc39308242af189d938ba92a9, type: 2}
   gameCamera: {fileID: 2000000, guid: 1dd679e8832394b4ebb41d3a950e9306, type: 2}
   hudCamera: {fileID: 2000000, guid: b4e0f197d10746b4db07bf06da32c750, type: 2}
@@ -57,6 +58,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 9a110a8bff820fc448ddb6a8bab28ace, type: 2}
   - {fileID: 2100000, guid: 6cf7b0d47276858478b0befdb5e48f05, type: 2}
   - {fileID: 2100000, guid: 17363cf94f164114285cb0f860d590f2, type: 2}
+  bigExplosion: {fileID: 100000, guid: dc533b4ca16d3cd4d94b4d9e8b3376f0, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

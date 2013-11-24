@@ -4,6 +4,7 @@ using System.Collections;
 internal enum SFX
 {
 	None = -1,
+	Laser = 0,
 	// TODO
 }
 
@@ -26,5 +27,7 @@ public class AssetHolder : MonoBehaviour
 	public Camera hudCamera;
 	public Material[] skyboxes;
 	#endregion // Rendering
+
+	public GameObject bigExplosion;
 }
 

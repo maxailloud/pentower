@@ -89,8 +89,10 @@ public class Tower : MonoBehaviour
 		while (this.currentState == TowerState.Destroying)
 		{
 			Destroy(this.gameObject.GetComponent<SpawnScript>());
-			this.currentState = TowerState.Destroyed;
 			yield return null;
+			Instantiate (GameSingleton.Instance.assetHolder.bigExplosion, this.transform.position, Quaternion.identity);
+			yield return new WaitForSeconds(2.0f);
+			this.currentState = TowerState.Destroyed;
 		}
 	}
 	
@@ -99,6 +101,9 @@ public class Tower : MonoBehaviour
 		while (this.currentState == TowerState.Destroyed)
 		{
 			yield return null;
+			if (this.towerVisual != null)
+				Destroy (this.towerVisual);
+			StopAllCoroutines();
 		}
 	}
 	#endregion // Internal States
