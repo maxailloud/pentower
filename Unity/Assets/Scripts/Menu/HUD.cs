@@ -6,6 +6,7 @@ public class HUD : MonoBehaviour
 {
 	#region HUD elements
 	public ButtonScript[] lanes;
+	public ButtonScript[] queues;
 	public ButtonScript[] units;
 	public TextMesh creditsText;
 	public TextMesh incomeText;
@@ -29,6 +30,7 @@ public class HUD : MonoBehaviour
 	void Update ()
 	{
 		HUD_Buttons ();
+		HUD_Queues ();
 	}
 
 	void LateUpdate ()
@@ -108,18 +110,21 @@ public class HUD : MonoBehaviour
 		}
 	}
 
-//	void OnGUI()
-//	{
-//		GUI.skin = GameSingleton.Instance.config.defaultSkin;
-//
-//		GUILayout.BeginHorizontal();
-//		GUILayout.FlexibleSpace();
-//		GUI.color = Color.red;
-//		GUILayout.Label(string.Format("Gold: {0} Income par cycle: {1}", m_player.tower.gold, m_player.tower.incomePerCycle));
-//		GUI.color = Color.white;
-//		GUILayout.FlexibleSpace();
-//		GUILayout.EndHorizontal();
-//	}
+	void HUD_Queues ()
+	{
+		if (this.queues != null && this.m_playerController != null) {
+			int currentQueueIndex = this.m_playerController.player.tower.currentSpawningLaneIndex;
+
+			for (var i  = 0; i < this.queues.Length; ++i) {
+				if (i == currentQueueIndex) {
+					this.queues [i].SetToggled ();
+				} else {
+					this.queues [i].toggled = false;
+					this.queues [i].SetDefault ();
+				}
+			}
+		}
+	}
 	
 	static public void drawRectangle (Color color, Rect r)
 	{
