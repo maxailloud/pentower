@@ -30,7 +30,12 @@ public class Unit : MonoBehaviour
 
 	public Tower tower;
 
+	public int damagePoints = 1;
+
 	[HideInInspector]
+	public Unit targetUnit = null;
+	public Tower targetTower = null;
+
 	/// Current state of the unit
 	public UnitState currentState;
 
@@ -48,6 +53,7 @@ public class Unit : MonoBehaviour
 			tower.gold -= this.creationCost;
 			tower.incomePerCycle += this.incomeBase;
 		}
+		StartCoroutine(FSM());
 	}
 
 	#region State Machine
@@ -87,7 +93,7 @@ public class Unit : MonoBehaviour
 	{
 		while (this.currentState == UnitState.AttackUnit)
 		{
-			// nothing for now
+			this.Attack();
 			yield return null;
 		}
 	}
@@ -96,7 +102,7 @@ public class Unit : MonoBehaviour
 	{
 		while (this.currentState == UnitState.AttackTower)
 		{
-			// nothing for now
+			this.Attack();
 			yield return null;
 		}
 	}
@@ -104,7 +110,7 @@ public class Unit : MonoBehaviour
 	{
 		while (this.currentState == UnitState.Dying)
 		{
-			// nothing for now
+			this.currentState = UnitState.Dead;
 			yield return null;
 		}
 	}
@@ -113,7 +119,7 @@ public class Unit : MonoBehaviour
 	{
 		while (this.currentState == UnitState.Dead)
 		{
-			// nothing for now
+			Destroy(this.gameObject);
 			yield return null;
 		}
 	}
@@ -127,6 +133,68 @@ public class Unit : MonoBehaviour
 		{
 			this.tower.UnitKilled(this);
 		}
+	}
+
+	public void LoseHitPoints (int hitPoints)
+	{
+		this.hitPoints -= hitPoints;
+		if (this.hitPoints <= 0) {
+			this.hitPoints = 0;
+			this.currentState = UnitState.Dying;
+		}
+	}
+
+	public void StartAttackUnit (Unit targetUnit)
+	{
+		//Debug.Log("Start Fire to minions motherfucker!");
+		this.targetUnit = targetUnit;
+		this.currentState = UnitState.AttackUnit;
+	}
+
+	public void StartAttackTower (Tower targetTower)
+	{
+		//Debug.Log("Start Destroying tower motherfucker!");
+		this.targetTower = targetTower;
+		this.currentState = UnitState.AttackTower;
+	}
+
+	void Attack ()
+	{
+		if (null != this.targetUnit) {
+			if (UnitState.Dying != this.targetUnit.currentState && UnitState.Dead != this.targetUnit.currentState) {
+				this.targetUnit.LoseHitPoints (this.damagePoints);
+			} else {
+				this.targetUnit = null;
+				this.StartMovement();
+			}
+		} else if (null != this.targetTower) {
+			if (TowerState.Destroying != this.targetTower.currentState && TowerState.Destroyed != this.targetTower.currentState) {
+				this.targetTower.LoseHitPoints (this.damagePoints);
+			} else {
+				this.targetTower = null;
+				this.currentState = UnitState.Dying;
+			}
+		}
+	}
+
+	public void StopAttack ()
+	{
+		this.targetUnit = null;
+		this.targetTower = null;
+	}
+
+	public void StopMovement()
+	{
+		this.gameObject.GetComponent<LocomotionController>().enabled = false;
+		this.gameObject.rigidbody.velocity = Vector3.zero;
+		this.gameObject.rigidbody.angularVelocity = Vector3.zero;
+		this.currentState = UnitState.Idle;
+	}
+
+	public void StartMovement()
+	{
+		this.gameObject.GetComponent<LocomotionController>().enabled = true;
+		this.currentState = UnitState.Movement;
 	}
 }
 
