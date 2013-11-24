@@ -32,6 +32,8 @@ public class Unit : MonoBehaviour
 
 	public int damagePoints = 1;
 
+	public float attackDelayTime = 0.5f; 
+
 	[HideInInspector]
 	public Unit targetUnit = null;
 	public Tower targetTower = null;
@@ -94,7 +96,7 @@ public class Unit : MonoBehaviour
 		while (this.currentState == UnitState.AttackUnit)
 		{
 			this.Attack();
-			yield return null;
+			yield return new WaitForSeconds(this.attackDelayTime);
 		}
 	}
 
@@ -119,6 +121,7 @@ public class Unit : MonoBehaviour
 	{
 		while (this.currentState == UnitState.Dead)
 		{
+			Debug.Log("Dead unit");
 			Destroy(this.gameObject);
 			yield return null;
 		}
@@ -191,8 +194,14 @@ public class Unit : MonoBehaviour
 		this.currentState = UnitState.Idle;
 	}
 
-	public void StartMovement()
+	public void ChangeSpeed(float newSpeed)
 	{
+		this.gameObject.GetComponent<LocomotionController> ().initialVelocity = newSpeed;
+	}
+
+	public void StartMovement()
+	{		
+		Debug.Log ("StartMovement");
 		this.gameObject.GetComponent<LocomotionController>().enabled = true;
 		this.currentState = UnitState.Movement;
 	}

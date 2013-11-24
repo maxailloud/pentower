@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - 135: {fileID: 13500000}
   m_Layer: 10
   m_Name: Rear_Bumper
-  m_TagString: Untagged
+  m_TagString: RearBumper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400012}
   - 65: {fileID: 6500000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tank_Turrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - 135: {fileID: 13500002}
   m_Layer: 10
   m_Name: Front_Bumper
-  m_TagString: Untagged
+  m_TagString: FrontBumper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -532,6 +532,7 @@ MonoBehaviour:
   maxHitPoints: 5
   tower: {fileID: 0}
   damagePoints: 1
+  attackDelayTime: .5
   targetUnit: {fileID: 0}
   targetTower: {fileID: 0}
   currentState: 0
