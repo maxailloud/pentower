@@ -30,6 +30,8 @@ public class Unit : MonoBehaviour
 
 	public Tower tower;
 
+	public int damagePoints = 1;
+
 	[HideInInspector]
 	public Unit targetUnit = null;
 	public Tower targetTower = null;
@@ -163,7 +165,7 @@ public class Unit : MonoBehaviour
 	{
 		if (null != this.targetUnit) {
 			if (UnitState.Dying != this.targetUnit.currentState && UnitState.Dead != this.targetUnit.currentState) {
-				this.targetUnit.LoseHitPoints (1);
+				this.targetUnit.LoseHitPoints (this.damagePoints);
 			} else {
 				this.targetUnit = null;
 			}
