@@ -95,8 +95,13 @@ public class Unit : MonoBehaviour
 	{
 		while (this.currentState == UnitState.AttackUnit)
 		{
-			this.Attack();
-			yield return new WaitForSeconds(this.attackDelayTime);
+			if(this.checkTargetUnit()){
+				yield return new WaitForSeconds(this.attackDelayTime);
+				this.Attack();
+			}
+			if(!this.checkTargetUnit()){
+				this.StartMovement();
+			}
 		}
 	}
 
@@ -104,8 +109,8 @@ public class Unit : MonoBehaviour
 	{
 		while (this.currentState == UnitState.AttackTower)
 		{
+			yield return new WaitForSeconds(this.attackDelayTime);
 			this.Attack();
-			yield return null;
 		}
 	}
 	IEnumerator DyingState()
@@ -121,7 +126,6 @@ public class Unit : MonoBehaviour
 	{
 		while (this.currentState == UnitState.Dead)
 		{
-			Debug.Log("Dead unit");
 			Destroy(this.gameObject);
 			yield return null;
 		}
@@ -164,12 +168,7 @@ public class Unit : MonoBehaviour
 	void Attack ()
 	{
 		if (null != this.targetUnit) {
-			if (UnitState.Dying != this.targetUnit.currentState && UnitState.Dead != this.targetUnit.currentState) {
-				this.targetUnit.LoseHitPoints (this.damagePoints);
-			} else {
-				this.targetUnit = null;
-				this.StartMovement();
-			}
+			this.targetUnit.LoseHitPoints (this.damagePoints);
 		} else if (null != this.targetTower) {
 			if (TowerState.Destroying != this.targetTower.currentState && TowerState.Destroyed != this.targetTower.currentState) {
 				this.targetTower.LoseHitPoints (this.damagePoints);
@@ -177,6 +176,8 @@ public class Unit : MonoBehaviour
 				this.targetTower = null;
 				this.currentState = UnitState.Dying;
 			}
+		} else {
+			this.StartMovement();
 		}
 	}
 
@@ -184,6 +185,14 @@ public class Unit : MonoBehaviour
 	{
 		this.targetUnit = null;
 		this.targetTower = null;
+	}
+
+	public bool checkTargetUnit()
+	{
+		if (null != this.targetUnit && UnitState.Dying != this.targetUnit.currentState && UnitState.Dead != this.targetUnit.currentState) {
+			return true;
+		}
+		return false;
 	}
 
 	public void StopMovement()
@@ -201,7 +210,6 @@ public class Unit : MonoBehaviour
 
 	public void StartMovement()
 	{		
-		Debug.Log ("StartMovement");
 		this.gameObject.GetComponent<LocomotionController>().enabled = true;
 		this.currentState = UnitState.Movement;
 	}
