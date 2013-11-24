@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192252deccda9ab4dadcad59a33a8943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialVelocity: 5
+  initialVelocity: 3
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -526,11 +526,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1c8254b990f6c4ab775d04a4c62b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creationCost: 1
+  creationCost: 5
   incomeBase: 1
-  hitPoints: 1
-  maxHitPoints: 3
+  hitPoints: 5
+  maxHitPoints: 5
   tower: {fileID: 0}
+  damagePoints: 1
+  targetUnit: {fileID: 0}
+  targetTower: {fileID: 0}
   currentState: 0
 --- !u!135 &13500000
 SphereCollider:

@@ -576,12 +576,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c1ba7268a19e84db0b75dc6c5f3d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 0
-  hitPoints: 0
+  gold: 20
+  hitPoints: 200
   incomePerCycle: 0
-  maxUnitPerQueue: 1
+  maxUnitPerQueue: 2
   maxAliveUnits: 20
   currentSpawningLaneIndex: 0
+  towerVisual: {fileID: 100002}
+  aliveUnits: 0
+  currentState: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
