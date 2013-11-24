@@ -128,6 +128,9 @@ MonoBehaviour:
   maxUnitPerQueue: 1
   maxAliveUnits: 20
   currentSpawningLaneIndex: 0
+  towerVisual: {fileID: 0}
+  aliveUnits: 0
+  currentState: 0
 --- !u!114 &21278600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,6 +1339,9 @@ MonoBehaviour:
   maxUnitPerQueue: 1
   maxAliveUnits: 20
   currentSpawningLaneIndex: 0
+  towerVisual: {fileID: 0}
+  aliveUnits: 0
+  currentState: 0
 --- !u!114 &992687699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1494,6 +1500,9 @@ MonoBehaviour:
   maxUnitPerQueue: 1
   maxAliveUnits: 20
   currentSpawningLaneIndex: 0
+  towerVisual: {fileID: 0}
+  aliveUnits: 0
+  currentState: 0
 --- !u!114 &1118925696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2438,6 +2447,9 @@ MonoBehaviour:
   maxUnitPerQueue: 1
   maxAliveUnits: 20
   currentSpawningLaneIndex: 0
+  towerVisual: {fileID: 0}
+  aliveUnits: 0
+  currentState: 0
 --- !u!114 &1812702462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2667,6 +2679,9 @@ MonoBehaviour:
   maxUnitPerQueue: 1
   maxAliveUnits: 20
   currentSpawningLaneIndex: 0
+  towerVisual: {fileID: 0}
+  aliveUnits: 0
+  currentState: 0
 --- !u!114 &1940663698
 MonoBehaviour:
   m_ObjectHideFlags: 0

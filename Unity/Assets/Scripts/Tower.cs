@@ -48,6 +48,7 @@ public class Tower : MonoBehaviour
 	void Start ()
 	{
 		StartCoroutine(FSM());
+		this.hitPoints = 10;
 	}
 
 	#region State Machine
@@ -87,6 +88,7 @@ public class Tower : MonoBehaviour
 	{
 		while (this.currentState == TowerState.Destroying)
 		{
+			Destroy(this.gameObject.GetComponent<SpawnScript>());
 			this.currentState = TowerState.Destroyed;
 			yield return null;
 		}
