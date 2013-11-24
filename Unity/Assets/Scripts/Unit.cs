@@ -31,6 +31,9 @@ public class Unit : MonoBehaviour
 	public Tower tower;
 
 	[HideInInspector]
+	public Unit targetUnit = null;
+	public Tower targetTower = null;
+
 	/// Current state of the unit
 	public UnitState currentState;
 
@@ -48,6 +51,7 @@ public class Unit : MonoBehaviour
 			tower.gold -= this.creationCost;
 			tower.incomePerCycle += this.incomeBase;
 		}
+		StartCoroutine(FSM());
 	}
 
 	#region State Machine
@@ -87,7 +91,7 @@ public class Unit : MonoBehaviour
 	{
 		while (this.currentState == UnitState.AttackUnit)
 		{
-			// nothing for now
+			this.Attack();
 			yield return null;
 		}
 	}
@@ -96,7 +100,7 @@ public class Unit : MonoBehaviour
 	{
 		while (this.currentState == UnitState.AttackTower)
 		{
-			// nothing for now
+			this.Attack();
 			yield return null;
 		}
 	}
@@ -127,6 +131,50 @@ public class Unit : MonoBehaviour
 		{
 			this.tower.UnitKilled(this);
 		}
+	}
+
+	public void StartAttackUnit (Unit targetUnit)
+	{
+		//Debug.Log("Start Fire to minions motherfucker!");
+		this.targetUnit = targetUnit;
+		this.currentState = UnitState.AttackUnit;
+	}
+
+	public void StartAttackTower (Tower targetTower)
+	{
+		//Debug.Log("Start Destroying tower motherfucker!");
+		this.targetTower = targetTower;
+		this.currentState = UnitState.AttackTower;
+	}
+
+	void Attack ()
+	{
+		if (null != this.targetUnit) {
+			Debug.Log("Attack unit");
+			this.targetUnit.hitPoints -= 1;
+		} else if (null != this.targetTower) {
+
+		}
+	}
+
+	public void StopAttack ()
+	{
+		this.targetUnit = null;
+		this.targetTower = null;
+	}
+
+	public void StopMovement()
+	{
+		this.gameObject.GetComponent<LocomotionController>().enabled = false;
+		this.gameObject.rigidbody.velocity = Vector3.zero;
+		this.gameObject.rigidbody.angularVelocity = Vector3.zero;
+		this.currentState = UnitState.Idle;
+	}
+
+	public void StartMovement()
+	{
+		this.gameObject.GetComponent<LocomotionController>().enabled = true;
+		this.currentState = UnitState.Movement;
 	}
 }
 

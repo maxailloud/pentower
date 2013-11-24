@@ -7,11 +7,23 @@ public class TankCollision : MonoBehaviour
 	void OnTriggerEnter (Collider other)
 	{
 		Tower tower = other.transform.parent.gameObject.GetComponent<Tower> ();
-		if (null == tower || (null != tower && this.gameObject.GetComponent<Unit> ().tower != tower)) {
-			this.gameObject.GetComponent<LocomotionController>().enabled = false;
-			this.gameObject.rigidbody.velocity = Vector3.zero;
-			this.gameObject.rigidbody.angularVelocity = Vector3.zero;
+		Unit unit = this.gameObject.GetComponent<Unit> ();
+		if (null == tower) {
+			unit.StopMovement();
+			tower = other.transform.parent.parent.parent.gameObject.GetComponent<Unit>().tower;
+			if (unit.tower != tower) {
+				unit.StartAttackUnit(other.transform.parent.parent.parent.gameObject.GetComponent<Unit>());
+			}
 		}
+		else if (null != tower && unit.tower != tower) {
+			unit.StopMovement();
+			unit.StartAttackTower(tower);			
+		}
+	}
 
+	void OnTriggerExit (Collider other)
+	{
+		Unit unit = this.gameObject.GetComponent<Unit> ();
+		unit.StartMovement();
 	}
 }
