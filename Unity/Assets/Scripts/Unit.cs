@@ -109,10 +109,17 @@ public class Unit : MonoBehaviour
 	{
 		while (this.currentState == UnitState.AttackTower)
 		{
-			yield return new WaitForSeconds(this.attackDelayTime);
-			this.Attack();
+			if(this.checkTargetTower()){
+				yield return new WaitForSeconds(this.attackDelayTime);
+				this.Attack();
+			}
+			if(!this.checkTargetTower()){
+				this.targetTower = null;
+				this.currentState = UnitState.Dying;
+			}
 		}
 	}
+
 	IEnumerator DyingState()
 	{
 		while (this.currentState == UnitState.Dying)
@@ -170,14 +177,7 @@ public class Unit : MonoBehaviour
 		if (null != this.targetUnit) {
 			this.targetUnit.LoseHitPoints (this.damagePoints);
 		} else if (null != this.targetTower) {
-			if (TowerState.Destroying != this.targetTower.currentState && TowerState.Destroyed != this.targetTower.currentState) {
-				this.targetTower.LoseHitPoints (this.damagePoints);
-			} else {
-				this.targetTower = null;
-				this.currentState = UnitState.Dying;
-			}
-		} else {
-			this.StartMovement();
+			this.targetTower.LoseHitPoints (this.damagePoints);
 		}
 	}
 
@@ -190,6 +190,14 @@ public class Unit : MonoBehaviour
 	public bool checkTargetUnit()
 	{
 		if (null != this.targetUnit && UnitState.Dying != this.targetUnit.currentState && UnitState.Dead != this.targetUnit.currentState) {
+			return true;
+		}
+		return false;
+	}
+
+	public bool checkTargetTower()
+	{
+		if (null != this.targetTower && TowerState.Destroying != this.targetTower.currentState && TowerState.Destroyed != this.targetTower.currentState) {
 			return true;
 		}
 		return false;
@@ -208,10 +216,17 @@ public class Unit : MonoBehaviour
 		this.gameObject.GetComponent<LocomotionController> ().initialVelocity = newSpeed;
 	}
 
+	public bool IsDying()
+	{
+		return UnitState.Dying == this.currentState || UnitState.Dead == this.currentState;
+	}
+
 	public void StartMovement()
-	{		
-		this.gameObject.GetComponent<LocomotionController>().enabled = true;
-		this.currentState = UnitState.Movement;
+	{
+		if (!this.IsDying ()) {
+			this.gameObject.GetComponent<LocomotionController>().enabled = true;
+			this.currentState = UnitState.Movement;
+		}
 	}
 }
 
