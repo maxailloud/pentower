@@ -44,11 +44,13 @@ public class SpawnScript : MonoBehaviour
 		if (this.m_tower != null) {
 			int index = this.m_tower.currentSpawningLaneIndex;
 
-			if (this.m_tower.laneQueues [index].Count > 0) {
+			if (this.m_tower.laneQueues [index].Count > 0 && this.m_tower.aliveUnits < this.m_tower.maxAliveUnits) {
 				Unit unit = this.m_tower.laneQueues [index].Peek ();
 
-				if (SpawnUnit (unit, index)) {
+				Unit spawnedUnit;
+				if (SpawnUnit (unit, index, out spawnedUnit)) {
 					this.m_tower.DequeueUnit (index);
+					this.m_tower.UnitSpawned(spawnedUnit);
 				}
 			}
 			
@@ -56,12 +58,12 @@ public class SpawnScript : MonoBehaviour
 		}
 	}
 
-	public bool SpawnUnit (Unit Unit, int enterPointIndex)
+	public bool SpawnUnit (Unit Unit, int enterPointIndex, out Unit spawnedUnit)
 	{
-		return SpawnUnit (Unit, this.spawnPoint.transform, enterPointIndex);
+		return SpawnUnit (Unit, this.spawnPoint.transform, enterPointIndex, out spawnedUnit);
 	}
 
-	public bool SpawnUnit (Unit unit, Transform spawnPoint, int enterPointIndex)
+	public bool SpawnUnit (Unit unit, Transform spawnPoint, int enterPointIndex, out Unit spawnedUnit)
 	{
 		if (unit != null && this.enterPoints != null && this.enterPoints.Length > enterPointIndex) {
 			var enter = this.enterPoints [enterPointIndex];	
@@ -72,15 +74,16 @@ public class SpawnScript : MonoBehaviour
 
 			Collider[] hitColliders = Physics.OverlapSphere (spawnPoint.position, 1.2f, layerMask);
 			if (hitColliders == null || hitColliders.Length == 0) {
-				unit = (Unit)Instantiate (unit, spawnPoint.position, Quaternion.LookRotation (forwardVector, spawnPoint.up));
-				unit.tower = this.GetComponent<Tower> ();
+				spawnedUnit = (Unit)Instantiate (unit, spawnPoint.position, Quaternion.LookRotation (forwardVector, spawnPoint.up));
+				spawnedUnit.tower = this.GetComponent<Tower> ();
 				// Parent the instantiated tank to this gameObject
-				unit.transform.parent = this.transform;
+				spawnedUnit.transform.parent = this.transform;
 
 				return true;
 			}
 		}
 
+		spawnedUnit = null;
 		return false;
 	}
 }

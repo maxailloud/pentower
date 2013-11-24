@@ -8,9 +8,12 @@ public class Tower : MonoBehaviour
 	public float hitPoints;
 	public float incomePerCycle;
 	public int maxUnitPerQueue = 1;
+	public int maxAliveUnits = 20;
 	
 	public List<Queue<Unit>> laneQueues;
 	public int currentSpawningLaneIndex = 0;
+	
+	internal int aliveUnits;
 
 	void Awake ()
 	{
@@ -45,6 +48,18 @@ public class Tower : MonoBehaviour
 	public void MoveLaneIndex ()
 	{
 		this.currentSpawningLaneIndex = (this.currentSpawningLaneIndex + 1) % this.laneQueues.Count;
+	}
+
+	public void UnitKilled(Unit unit)
+	{
+		// For now just ndecrement counter
+		this.aliveUnits = Mathf.Clamp (this.aliveUnits - 1, 0, this.maxAliveUnits);
+	}
+	
+	public void UnitSpawned(Unit unit)
+	{
+		// For now just increment counter
+		this.aliveUnits = Mathf.Clamp (this.aliveUnits + 1, 0, this.maxAliveUnits);
 	}
 }
 
