@@ -20,3 +20,6 @@ Unity.userprefs
 *.tgz
 *.rar
 *.zip
+
+# Conf files
+*.ini
